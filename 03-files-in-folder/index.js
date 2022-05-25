@@ -4,7 +4,7 @@ const folder = path.join(__dirname, 'secret-folder');
 
 async function info(item) {
   const ffff = path.join(folder, item);
-  const name = path.basename(item, path.exname(item));
+  const name = path.basename(item, path.extname(item));
   const ex = path.exname(item);
   fs.stat(ffff, (error, data) => {
     const size =Math.floor((data.size / 1024) * 100) / 100;
