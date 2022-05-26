@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const readline = require('readline');
-const { stdin: input, stdout: output } = require('process');
+const { stdin: input, stdout: output, exit  } = require('process');
 const wr = fs.createWriteStream(path.join(__dirname, 'destination.txt'));
 const rl = readline.createInterface({ input, output });
 output.write('Наберите текст. Он сохранится в файле\n');
@@ -11,3 +11,5 @@ rl.on('line', (input) => {
     rl.close(console.log('Работа завершена'));
   }
 });
+process.on('exit', () => console.log('text for closed programm'));
+process.on('SIGINT', exit);
